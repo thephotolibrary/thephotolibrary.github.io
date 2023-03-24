@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="New Project (1).png">
+        <style>
+            a{
+                cursor: pointer;
+                text-decoration: none;
+            }
+            header{
+                margin-left: -8px;
+                margin-right: -8px;
+                margin-top: -8px;
+                padding-left: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: gray;
+            }
+            @font-face {
+                font-family: LL Pixel;
+                src: url(LLPIXEL3.woff2);
+            }
+            @font-face {
+                font-family: Common Pixel;
+                src: url(COMMP___.woff2)
+            }
+            .p3{
+                width: 60px;
+                transition: color 0.5s;
+                color: black;
+                text-decoration: none;
+                font-family:"LL Pixel";
+            }
+            .p3:hover{
+                cursor: pointer;
+                color: white;
+            }
+            @media only screen and (max-width:600px) {
+                .img2{
+                    margin-left: 35%;
+                }
+                .both, .captcha, .userpass{
+                    margin-left: 20%;
+                }
+                .signup{
+                    margin-left:41%;
+                }
+                .register{
+                    margin-left: 47%;
+                }
+            }
+            @media (min-width:600px) and (max-width:1000px) {
+                .img2{
+                    margin-left: 40%;
+                }
+                .both, .captcha, .userpass{
+                    margin-left: 30%;
+                }
+                .signup{
+                    margin-left:42%;
+                }
+                .register{
+                    margin-left: 45%;
+                }
+            }
+            @media only screen and (min-width:1000px) {
+                .img2{
+                    margin-left: 45%;
+                }
+                .both, .captcha, .userpass{
+                    margin-left: 40%;
+                }
+                .signup{
+                    margin-left:47%;
+                }
+                .register{
+                    margin-left: 50%;
+                }
+            }
+            .userpass{
+                height: 35px;
+                width: 300px;
+                border-radius: 0px;
+                border-style:dashed;
+                border-color: rgba(0,0,0,0.75);
+                font-family: "Common Pixel";
+            }
+            .p4{
+                width: 50px;
+            }
+            .both{
+                font-family: "LL Pixel";
+            }
+            .signup{
+                font-family: "LL Pixel";
+            }
+            .register{
+                border-radius: 0px;
+                border-style: dotted;
+                border-color: rgba(0,0,0,0.75);
+                font-family: "LL Pixel";
+                margin-top: 20px;
+                cursor: pointer;
+                transition: opacity 0.1s;
+            }
+            .register:hover{
+                opacity: 0.9;
+            }
+            .register:active{
+                opacity: 0.5;
+            }
+            .captcha{
+                font-family: "LL Pixel";
+            }
+        </style>
+        <title>Sign Up</title>
+    </head>
+    <header>
+        <a class="p4" href="index.html">
+            <img class="img2" src="logo.png" width="150" height="60"/>
+        </a>
+        <a class="p3" href="sign up.html">
+            <b>
+                Sign up
+            </b>
+        </a>
+    </header>
+    <body>
+        <h1 class="signup">Sign Up</h1>
+        <form action="signup.php" method="post">
+            <div>
+                <b class="both">Username</b>
+                <input class="userpass" maxlength="22" placeholder="Type in your username here..." type="text" />
+            </div>
+            <br />
+            <div>
+                <b class="both">Password</b>
+                <input class="userpass" placeholder="Type in your password here..." type="password" />
+            </div>
+            <br />
+            <b class="both">Prove that you're not a bot</b>
+            <br />
+            <script>
+                var rand1 = Math.random() * 10
+                var round1 = Math.round(rand1)
+                var rand2 = Math.random() * 10
+                var round2 = Math.round(rand2)
+                var ans = round2 + round1
+                document.write('<b class="captcha">' + round1 + ' + ' + round2 + ' = ' + '</b>')
+                function checkcaptcha() {
+                    var inputValue = document.getElementById("captchaa").value;
+
+                    // Convert the string value to an integer
+                    var intValue = parseInt(inputValue);
+
+                    // Check if the entered value is equal to the integer variable
+                    if (intValue === ans) {
+                        window.alert("You have solved the answer to " + round1 + " + " + round2 + ".");
+                    } else {
+                        window.alert("That was not the correct answer. Try again.");
+                    }
+                }
+            </script>
+            <br />
+            <input type="text" class="userpass" id="captchaa" placeholder="Answer the math problem here..."/>
+            <br />
+            <br />
+            <input type="button" class="register" value="Register" onclick="checkcaptcha()"/>
+        </form>
+    </body>
+</html>
