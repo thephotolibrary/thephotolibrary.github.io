@@ -142,12 +142,27 @@
             <br />
             <script>
                 function randomNumber(min,max){
-                    return Math.floor(Math.random() * (max - min + 1) + min);
+                    var array = [max]
+                    var rand1 = Math.random() * 100
+                    var round1 = Math.round(rand1)
+                    for(var i = max; i--;){
+                        array.push(i)
+                        if(i === min){
+                            break
+                        }
+                    }
+                    non = array[round1]
+                    if(non !== undefined){
+                        return array[round1];
+                    } else if(non === undefined){
+                        return Math.floor(Math.random() * (max - min + 1) + min);
+                    }
                 }
                 var yes = randomNumber(1,99)
                 var no = randomNumber(1,99)
                 var ans = yes + no
                 document.write('<b class="captcha">' + yes + ' + ' + no + ' = ' + '</b>')
+
                 function checkcaptcha() {
                     var inputValue = document.getElementById("captchaa").value; //captcha input
 
