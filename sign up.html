@@ -141,23 +141,22 @@
             <b class="both">Prove that you're not a bot</b>
             <br />
             <script>
-                var rand1 = Math.random() * 10
-                var round1 = Math.round(rand1)
-                var rand2 = Math.random() * 10
-                var round2 = Math.round(rand2)
-                var ans = round2 + round1
-                document.write('<b class="captcha">' + round1 + ' + ' + round2 + ' = ' + '</b>')
+                function randomNumber(min,max){
+                    return Math.floor(Math.random() * (max - min + 1) + min);
+                }
+                var yes = randomNumber(1,99)
+                var no = randomNumber(1,99)
+                var ans = yes + no
+                document.write('<b class="captcha">' + yes + ' + ' + no + ' = ' + '</b>')
                 function checkcaptcha() {
-                    var inputValue = document.getElementById("captchaa").value;
+                    var inputValue = document.getElementById("captchaa").value; //captcha input
 
-                    // Convert the string value to an integer
-                    var intValue = parseInt(inputValue);
+                    var intValue = parseInt(inputValue); //turn user input into integer
 
-                    // Check if the entered value is equal to the integer variable
                     if (intValue === ans) {
-                        window.alert("You have solved the answer to " + round1 + " + " + round2 + ".");
+                        window.alert("You have solved the answer to " + yes + " + " + no + "."); //true
                     } else {
-                        window.alert("That was not the correct answer. Try again.");
+                        window.alert("That was not the correct answer. Try again."); //false
                     }
                 }
             </script>
